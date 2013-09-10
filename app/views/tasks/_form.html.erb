@@ -1,0 +1,9 @@
+<%= simple_form_for [@projecct,@task] , :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to 'cancel' ,
+                :back , :class => 'btn' %>
+  </div>
+<% end %>

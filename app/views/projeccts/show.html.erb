@@ -1,0 +1,22 @@
+
+<%- model_class = Projecct -%>
+<div class="page-header">
+  <h1><%= @projecct.name %></h1>
+</div>
+<h4>tasks</h4>
+<% @tasks.each do |task| %>
+  <%=link_to task.name , projecct_task_path(@projecct, task) %><br />
+<% end %>
+
+<div class="form-actions">
+  <%= link_to 'New task' , new_projecct_task_path(@projecct) , :class => 'btn' %>
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              projeccts_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_projecct_path(@projecct), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              projecct_path(@projecct),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
